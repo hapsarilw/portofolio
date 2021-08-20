@@ -1,4 +1,4 @@
-import Navigation from './Layout/Navigation';
+import Navigation from './componets/Layout/Navigation';
 import './App.css';
 
 function App() {
