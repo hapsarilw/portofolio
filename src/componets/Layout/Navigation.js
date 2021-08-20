@@ -32,17 +32,8 @@ export default function Navigation() {
             <a href="#responsive-header">Blog</a>
           </div>
           <div>
-            <a
-              href="#responsive-header"
-            >
-              Docs
-            </a>
-            <button 
-              href="#"
-              className="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0"
-            >
-              Download
-            </button>
+            <a href="#responsive-header">Login</a>
+            <button>Sign Up</button>
           </div>
         </div>
       </nav>
