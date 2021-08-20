@@ -11,8 +11,13 @@ module.exports = {
       red: "hsl(0, 87%, 67%)",
       verydarkviolet: "hsl(260, 8%, 14%)",
       transparent: 'hsl(44 , 24% , 91%)',
+      grey: '#DBEAFE'
     },
-    extend: {},
+    extend: {
+      backgroundImage: theme => ({
+        'boost-pattern': "url(../src/images/bg-boost-desktop.svg)"
+      })
+    },
   },
   variants: {
     extend: {},
