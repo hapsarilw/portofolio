@@ -11,7 +11,8 @@ module.exports = {
       red: "hsl(0, 87%, 67%)",
       verydarkviolet: "hsl(260, 8%, 14%)",
       transparent: 'hsl(44 , 24% , 91%)',
-      grey: '#DBEAFE'
+      grey: '#DBEAFE',
+      brokenwhite: 'hsl(0, 0%, 100%)',
     },
     extend: {
       backgroundImage: theme => ({

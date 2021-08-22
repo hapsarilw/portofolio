@@ -27,9 +27,9 @@ export default function Navigation() {
         </div>
         <div id="left-side">
           <div className="text-sm lg:flex-grow">
-            <a href="#responsive-header">Docs</a>
-            <a href="#responsive-header">Examples</a>
-            <a href="#responsive-header">Blog</a>
+            <a href="#responsive-header">Features</a>
+            <a href="#responsive-header">Pricing</a>
+            <a href="#responsive-header">Resources</a>
           </div>
           <div>
             <a href="#responsive-header">Login</a>

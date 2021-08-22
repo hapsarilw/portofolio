@@ -3,7 +3,7 @@ import React from "react";
 export default function Form() {
   return (
     <>
-      <div className="p-20 bg-grey">
+      <div className="pl-20 pr-20 pt-20 pb-2 bg-grey">
         <div className="flex items-stretch rounded p-10 m-3 pt-0 bg-boost-pattern pt-10 pb-10">
           <input
             type="text"
@@ -13,7 +13,9 @@ export default function Form() {
           <button
             className="bg-cyan hover:bg-cyan text-transparent font-bold py-2 px-4 border border-cyan rounded"
             type="button"
-          >Shorten It!</button>
+          >
+            Shorten It!
+          </button>
         </div>
       </div>
     </>
