@@ -1,16 +1,10 @@
 import './App.css';
-import Navigation from './componets/Layout/Navigation';
-import Main from './componets/Layout/Main';
-import Form from './componets/Layout/Form';
-import OutputList from './componets/Layout/OutputList';
+import Layout from './componets/layout/Layout';
 
 function App() {
   return (
   <>
-    <Navigation />
-    <Main />
-    <Form />
-    <OutputList />    
+    <Layout />   
   </>
   );
 }
