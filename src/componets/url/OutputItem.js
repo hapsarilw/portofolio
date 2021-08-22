@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function OutputItem() {
+export default function OutputItem(props) {
+  console.log("Output: "+props.id)
   return (
     <div className="bg-grey pl-20 pr-20 pb-5">
       <div className="bg-brokenwhite shadow-xl flex items-stretch rounded pl-10 pr-10 pt-2 pb-2">

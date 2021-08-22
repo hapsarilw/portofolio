@@ -3,47 +3,61 @@ import { useState, useEffect } from "react";
 const BASE_URL = `https://api.shrtco.de/v2/shorten`;
 
 const Form = (props) => {
+  const [isSending, setIsSending] = useState(false);
   const [originalUrl, setOriginalUrl] = useState("");
-  const [rawData, setRawData] = useState({id: "", shortLink: "", originalLink: ""}); 
-
+  const [rawData, setRawData] = useState({
+    status: "null",
+    id: "null",
+    shortLink: "null",
+    originalLink: "null",
+  });
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSending(true);
+    console.log("isSending: " + isSending);
   };
 
   useEffect(() => {
-    if (originalUrl !== "") {
+    console.log("orUrl:" + originalUrl + " " + isSending);
+    if (isSending === true && originalUrl !== "") {
+      console.log("Sending Url");
+      console.log("BASE_URL: " + BASE_URL + "?url=" + originalUrl);
       fetch(BASE_URL + "?url=" + originalUrl)
         .then((res) => res.json())
         .then((data) => {
-          setRawData({            
+          setRawData({
+            status: data.ok,
             id: data.result.code,
             shortLink: data.result.short_link,
-            originalLink: data.result.original_link
-          });          
+            originalLink: data.result.original_link,
+          });
         });
+      console.log("Child Data: " + JSON.stringify(rawData));
+      props.onAddUrl(rawData);
+      setIsSending(false);
     }
-    console.log(rawData);
-  }, [originalUrl, rawData]);
+  }, [rawData, isSending]);
 
   return (
     <>
       <div className="pl-20 pr-20 pt-20 pb-2 bg-grey">
-        <div className="flex items-stretch rounded p-10 m-3 pt-0 bg-boost-pattern pt-10 pb-10">
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Insert a Link"
-              onChange={(e) => {
-                setOriginalUrl(e.target.value);
-              }}
-              required
-              className="w-3/4 flex-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full mr-4"
-            />
-            <button className="bg-cyan hover:bg-cyan text-brokenwhite font-bold py-2 px-4 border border-cyan rounded">
-              Shorten It!
-            </button>
-          </form>
-        </div>
+        <form
+          onSubmit={handleSubmit}
+          className="flex items-stretch rounded p-10 m-3 pt-0 bg-boost-pattern pt-10 pb-10"
+        >
+          <input
+            type="text"
+            placeholder="Insert a Link"
+            onChange={(e) => {
+              setOriginalUrl(e.target.value);
+            }}
+            required
+            className="w-3/4 flex-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full mr-4"
+          />
+          <button className="bg-cyan hover:bg-cyan text-brokenwhite font-bold py-2 px-4 border border-cyan rounded">
+            Shorten It!
+          </button>
+        </form>
       </div>
     </>
   );
