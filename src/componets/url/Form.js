@@ -5,38 +5,36 @@ const BASE_URL = `https://api.shrtco.de/v2/shorten`;
 const Form = (props) => {
   const [isSending, setIsSending] = useState(false);
   const [originalUrl, setOriginalUrl] = useState("");
-  const [rawData, setRawData] = useState({
-    status: "null",
-    id: "null",
-    shortLink: "null",
-    originalLink: "null",
-  });
+  const [rawData, setRawData] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSending(true);
-    console.log("isSending: " + isSending);
   };
 
   useEffect(() => {
-    console.log("orUrl:" + originalUrl + " " + isSending);
+    console.log("oriUrl:" + originalUrl + " " + isSending);
     if (isSending === true && originalUrl !== "") {
       console.log("Sending Url");
       console.log("BASE_URL: " + BASE_URL + "?url=" + originalUrl);
       fetch(BASE_URL + "?url=" + originalUrl)
         .then((res) => res.json())
         .then((data) => {
-          setRawData({
-            status: data.ok,
+          let result = {
             id: data.result.code,
             shortLink: data.result.short_link,
             originalLink: data.result.original_link,
-          });
+          };
+          console.log("URL Result: "+ JSON.stringify(result))
+          setRawData(result);
+          console.log("Raw Data: " + JSON.stringify(rawData))
+          props.onAddUrl(rawData);
+          console.log("Data Sending")
+          setIsSending(false);
         });
-      console.log("Child Data: " + JSON.stringify(rawData));
-      props.onAddUrl(rawData);
-      setIsSending(false);
+        
     }
-  }, [rawData, isSending]);
+  }, [originalUrl, isSending, rawData]);
 
   return (
     <>
