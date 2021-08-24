@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { trackPromise } from 'react-promise-tracker';
 
 const BASE_URL = `https://api.shrtco.de/v2/shorten`;
 
@@ -17,22 +18,21 @@ const Form = (props) => {
     if (isSending === true && originalUrl !== "") {
       console.log("Sending Url");
       console.log("BASE_URL: " + BASE_URL + "?url=" + originalUrl);
-      fetch(BASE_URL + "?url=" + originalUrl)
-        .then((res) => res.json())
-        .then((data) => {
-          let result = {
-            id: data.result.code,
-            shortLink: data.result.short_link,
-            originalLink: data.result.original_link,
-          };
-          console.log("URL Result: "+ JSON.stringify(result))
-          setRawData(result);
-          console.log("Raw Data: " + JSON.stringify(rawData))
-          props.onAddUrl(rawData);
-          console.log("Data Sending")
-          setIsSending(false);
-        });
-        
+      trackPromise(fetch(BASE_URL + "?url=" + originalUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        let result = {
+          id: data.result.code,
+          shortLink: data.result.short_link,
+          originalLink: data.result.original_link,
+        };
+        console.log("URL Result: "+ JSON.stringify(result))
+        setRawData(result);
+        console.log("Raw Data: " + JSON.stringify(rawData))
+        props.onAddUrl(rawData);
+        console.log("Data Sending")
+        setIsSending(false);
+      }));       
     }
   }, [originalUrl, isSending, rawData]);
 

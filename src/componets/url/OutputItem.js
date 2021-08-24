@@ -26,7 +26,7 @@ export default function OutputItem(props) {
             className="bg-cyan hover:bg-cyan text-brokenwhite font-bold py-1 px-1 pl-5 pr-5 border border-cyan rounded"
             type="button"           
           >
-            {isCopied ? "Copied" : "Copy"}
+            {isCopied ? "Copied!" : "Copy"}
           </button>
         </CopyToClipboard>        
       </div>
