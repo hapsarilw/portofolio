@@ -8,26 +8,21 @@ import { useState } from "react";
 function App() {
   const [urlData, setUrlData] = useState([
     {
-      id: "data1",
-      shortLink: "sL1",
-      originalLink: "oL2",
-    },
-    {
-      id: "data2",
-      shortLink: "sL2",
-      originalLink: "oL2",
+      id: 'url1',
+      shortLink: 'chr.kj/5db8',
+      originalLink: 'gsdhav.com/nwjns709duqwn',
     },
   ]);
 
   const handlerUrlChange = (data) => {
-    console.log("Parent: " + JSON.stringify(data))
+    console.log("Parent: " + JSON.stringify(data));
     let result = {
       id: data.id,
       shortLink: data.shortLink,
       originalLink: data.originalLink,
-    };   
-    const newArray = [...urlData, result]
-    setUrlData(newArray)
+    };
+    const newArray = [...urlData, result];
+    setUrlData(newArray);
   };
 
   return (

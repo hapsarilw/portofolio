@@ -30,11 +30,7 @@ export default function Navigation() {
             <a href="#responsive-header">Features</a>
             <a href="#responsive-header">Pricing</a>
             <a href="#responsive-header">Resources</a>
-          </div>
-          <div>
-            <a href="#responsive-header">Login</a>
-            <button>Sign Up</button>
-          </div>
+          </div>          
         </div>
       </nav>
     </NavigationStyles>
