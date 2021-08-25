@@ -4,11 +4,24 @@ import Form from "./componets/url/Form";
 import OutputList from "./componets/url/OutputList";
 import Main from "./componets/layout/Main";
 
-import { useState } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { usePromiseTracker } from "react-promise-tracker";
+
+
 
 function App() {
   const [urlData, setUrlData] = useState([]);
+
+  useEffect(() => {
+    // Get the item from local storage. JSON.parse(null) returns null rather than throws
+    // Get from local storage before setting it
+    const localTodos = JSON.parse(localStorage.getItem("urlData")) || [];
+    setUrlData(localTodos);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("urlData", JSON.stringify(urlData));
+  }, [urlData]);
 
   const handlerUrlChange = (data) => {
     console.log("Parent: " + JSON.stringify(data));
@@ -40,9 +53,9 @@ function App() {
     <>
       <Navigation />
       <Main />
-      <div >
+      <div>
         <Form onAddUrl={handlerUrlChange} />
-        <LoadingIndicator/>
+        <LoadingIndicator />
         <OutputList listOfData={urlData} />
       </div>
     </>

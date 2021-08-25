@@ -9,6 +9,7 @@ export default function OutputList(props) {
   return (
     <>
       {props.listOfData.map((data, index) => {
+         // console.log(props.listOfData[index].id)
           return props.listOfData[index].id === undefined ? null : <OutputItem key={JSON.stringify(data.id)} urlItem={data} />        
       })}
     </>
