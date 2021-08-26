@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     colors: {
       cyan: "hsl(180, 66%, 49%)",
+      cyan100: "rgb(145,255,255)",
       darkviolet: "hsl(257, 27%, 26%)",
       gray: "hsl(0, 0%, 75%)",
       grayish: "hsl(257, 7%, 63%)",

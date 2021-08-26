@@ -2,29 +2,35 @@ import styled from "styled-components"
 import tw from "twin.macro"
 
 const NavigationStyles = styled.main.attrs({
-
+  
 })`
   & {
     nav {
-      ${tw`flex items-center justify-between flex-wrap p-6`}
+      ${tw`flex px-20 py-10 flex-col overflow-hidden object-top`}
+    } 
+    #top-side {
+      ${tw`flex justify-start justify-between`}
     }
     #logo {
-        ${tw `flex items-center flex-shrink-0 mr-6`}
+      ${tw`flex flex-none`}
+    }        
+    #desktop-menu{
+      ${tw`pl-10 invisible lg:visible lg:place-items-start`}
+    }
+    #desktop-menu a{
+      ${tw`pl-10 text-lg text-grayish focus:text-verydarkviolet `}
+    }
+    #bottom-side {
+      ${tw`block z-40 lg:invisible`}
     }
     #menu {
-        ${tw`block lg:hidden`}
+      ${tw`lg:hidden`}
     }
-    #menu button {
-        ${tw`flex items-center px-3 py-2 border rounded text-cyan border-cyan hover:text-gray hover:border-gray`}
+    #tabmenu {
+      ${tw`w-full flex rounded p-5 mt-5 bg-boost-pattern flex flex-col bg-darkviolet text-xl text-brokenwhite`}
     }
-    #left-side{
-        ${tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
-    }
-    #left-side a {
-        ${tw`block mt-4 lg:inline-block lg:mt-0 text-grayish hover:text-verydarkviolet mr-4`}
-    }    
-    button {
-        ${tw`inline-block text-sm px-4 py-2 leading-none bg-cyan border rounded-full text-transparent border-cyan hover:border-transparent hover:text-transparent hover:bg-cyan mt-4 lg:mt-0`}
+    #tabmenu a {
+      ${tw `p-2`}
     }
   }
 `

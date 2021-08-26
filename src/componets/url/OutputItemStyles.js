@@ -1,31 +1,25 @@
 import styled from "styled-components"
 import tw from "twin.macro"
 
-const NavigationStyles = styled.main.attrs({
+const OutputItemStyles = styled.main.attrs({
 
 })`
   & {
-    nav {
-      ${tw`flex items-center justify-between flex-wrap p-6`}
+    #itemSection {
+      ${tw`bg-grey pl-20 pr-20 pb-5`}
+    }   
+    #item {
+      ${tw`divide-y divide-grayish lg:divide-y-0 flex-col lg:flex-row bg-brokenwhite shadow-xl flex items-stretch rounded p-5`}
+    } 
+    #item #originalLink {
+      ${tw`text-center flex-1 bg-brokenwhite px-3 py-3 bg-brokenwhite text-verydarkviolet relative w-full lg:mr-4 lg:text-left`}
     }
-    #logo {
-        ${tw `flex items-center flex-shrink-0 mr-6`}
+    #item #shortLink {
+      ${tw`text-center lg:text-right text-cyan items-stretch flex-1 bg-brokenwhite px-3 py-3 bg-brokenwhite w-full mr-4`}
     }
-    #menu {
-        ${tw`block lg:hidden`}
-    }
-    #menu button {
-        ${tw`flex items-center px-3 py-2 border rounded text-cyan border-cyan hover:text-gray hover:border-gray`}
-    }
-    #left-side{
-        ${tw`w-full block flex-grow lg:flex lg:items-center lg:w-auto`}
-    }
-    #left-side a {
-        ${tw`block mt-4 lg:inline-block lg:mt-0 text-grayish hover:text-verydarkviolet mr-4`}
-    }    
-    button {
-        ${tw`inline-block text-sm px-4 py-2 leading-none bg-cyan border rounded-full text-transparent border-cyan hover:border-transparent hover:text-transparent hover:bg-cyan mt-4 lg:mt-0`}
+    #item button {
+     ${tw`bg-cyan hover:bg-cyan text-brokenwhite font-bold py-1 px-1 pl-5 pr-5 border border-cyan rounded`} 
     }
   }
 `
-export default NavigationStyles
+export default OutputItemStyles

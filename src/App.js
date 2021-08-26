@@ -3,11 +3,11 @@ import Navigation from "./componets/layout/Navigation";
 import Form from "./componets/url/Form";
 import OutputList from "./componets/url/OutputList";
 import Main from "./componets/layout/Main";
+import Features from "./componets/layout/Features";
+import Footer from "./componets/layout/Footer";
 
 import { useState, useEffect, useReducer } from "react";
 import { usePromiseTracker } from "react-promise-tracker";
-
-
 
 function App() {
   const [urlData, setUrlData] = useState([]);
@@ -50,15 +50,15 @@ function App() {
   };
 
   return (
-    <>
+    <div>
       <Navigation />
       <Main />
-      <div>
-        <Form onAddUrl={handlerUrlChange} />
-        <LoadingIndicator />
-        <OutputList listOfData={urlData} />
-      </div>
-    </>
+      <Form onAddUrl={handlerUrlChange} />
+      <LoadingIndicator />
+      <OutputList listOfData={urlData} />
+      <Features />
+      <Footer/>
+    </div>
   );
 }
 

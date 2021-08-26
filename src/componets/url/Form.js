@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { trackPromise } from 'react-promise-tracker';
+import FormStyles from "./FormStyles";
 
 const BASE_URL = `https://api.shrtco.de/v2/shorten`;
 
@@ -12,7 +13,6 @@ const Form = (props) => {
     event.preventDefault();
     setIsSending(true);
   };
-
   useEffect(() => {
     console.log("oriUrl:" + originalUrl + " " + isSending);
     if (isSending === true && originalUrl !== "") {
@@ -37,11 +37,11 @@ const Form = (props) => {
   }, [originalUrl, isSending, rawData]);
 
   return (
-    <>
-      <div className="pl-20 pr-20 pt-20 pb-2 bg-grey">
+    <FormStyles>
+      <div id="formSection">
         <form
+          className="bg-boost-pattern"
           onSubmit={handleSubmit}
-          className="flex items-stretch rounded p-10 m-3 pt-0 bg-boost-pattern pt-10 pb-10"
         >
           <input
             type="text"
@@ -50,14 +50,14 @@ const Form = (props) => {
               setOriginalUrl(e.target.value);
             }}
             required
-            className="w-3/4 flex-1 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full mr-4"
+            
           />
-          <button className="bg-cyan hover:bg-cyan text-brokenwhite font-bold py-2 px-4 border border-cyan rounded">
+          <button >
             Shorten It!
           </button>
         </form>
       </div>
-    </>
+    </FormStyles>
   );
 };
 
