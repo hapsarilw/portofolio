@@ -17,7 +17,8 @@ module.exports = {
     },
     extend: {
       backgroundImage: theme => ({
-        'boost-pattern': "url(../src/images/bg-boost-desktop.svg)"
+        'boost-pattern': "url(../src/images/bg-boost-desktop.svg)",
+        'facebook' : "url(../src/images/icon-facebook.svg"
       })
     },
   },
