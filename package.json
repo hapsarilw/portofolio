@@ -1,5 +1,5 @@
 {
-  "homepage": "http://gitname.github.io/react-gh-pages",
+  "homepage": "https://hapsarilw.github.io/url-shortening",
   "name": "url-shortening",
   "version": "0.1.0",
   "private": true,
@@ -21,13 +21,16 @@
     "react-scripts": "4.0.3",
     "styled-components": "^5.3.0",
     "twin.macro": "^2.6.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "gh-pages": "^3.1.0"
   },
   "scripts": {
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -49,8 +52,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
-    "gh-pages": "^3.2.3",
     "postcss": "^7.0.36",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"    
   }
 }
