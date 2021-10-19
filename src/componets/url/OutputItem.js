@@ -4,7 +4,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 
 export default function OutputItem(props) {
   const [isCopied, setIsCopied] = useState(false);
-  const [copyText, setCopyText] = useState(props.urlItem.shortLink);
+  const copyText = useState(props.urlItem.shortLink);
 
   return (
     <OutputItemStyles>

@@ -34,7 +34,7 @@ const Form = (props) => {
         setIsSending(false);
       }));       
     }
-  }, [originalUrl, isSending, rawData]);
+  }, [originalUrl, isSending, rawData, props]);
 
   return (
     <FormStyles>

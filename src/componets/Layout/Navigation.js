@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react/cjs/react.development";
 import NavigationStyles from "./NavigationStyles";
-import { Transition } from "@headlessui/react";
+// import { Transition } from "@headlessui/react";
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);

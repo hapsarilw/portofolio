@@ -6,7 +6,7 @@ import Main from "./componets/layout/Main";
 import Features from "./componets/layout/Features";
 import Footer from "./componets/layout/Footer";
 
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect } from "react";
 import { usePromiseTracker } from "react-promise-tracker";
 
 function App() {
